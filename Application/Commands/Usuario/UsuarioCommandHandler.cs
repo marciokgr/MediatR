@@ -31,36 +31,3 @@ public class UsuarioCommandHandler : IRequestHandler<UsuarioCadastroCommand, str
         return await Task.FromResult("Ok");
     }
 }
-
-
-/*
-public class UsuarioCommandHandler : IRequestHandler<UsuarioCadastroCommand, UsuarioCadastroResult>
-{
-    private readonly IMediator _mediator;
-    private readonly IUsuarioCommand _usuario;
-
-
-    public UsuarioCommandHandler(IMediator mediator, IUsuarioCommand usuarioCommand)
-    {
-        _mediator = mediator;
-        _usuario = usuarioCommand;
-
-    }
-
-    public async Task<UsuarioCadastroResult> Handle(UsuarioCadastroCommand request, CancellationToken cancellationToken)
-    {
-
-        Log.Information("Usuário command");
-
-        var result = new UsuarioCadastroResult();
-        result = await _usuario.PostCadastro(request);
-        result.Sucesso = true;
-
-
-        //await _mediator.Publish(new ProductSavedNotification { Id = request.Id }, cancellationToken);
-        //await _mediator.Publish(new SendEmailNotification { Email = "test@mail.com" }, cancellationToken);
-
-        return result;
-    }
-}
-*/
