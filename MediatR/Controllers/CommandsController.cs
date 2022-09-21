@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using MediatR.Application.Commands.UsuarioCommand;
+using MediatR.Application.Contract.Usuario;
 
 namespace MediatR.WebApi.Controllers;
 
@@ -15,7 +15,7 @@ public class CommandsController : Controller
     }
 
     [HttpPost("usuario")]
-    public async Task<IActionResult> PostUsuarioAsync([FromBody] UsuarioCommand usuario)
+    public async Task<IActionResult> PostUsuarioAsync([FromBody] UsuarioCadastroCommand usuario)
     {
         var command = await _mediator.Send(usuario);
         return Json(command);

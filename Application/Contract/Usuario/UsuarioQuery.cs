@@ -1,6 +1,6 @@
-﻿namespace MediatR.Application.Queries.UsuarioQuery;
+﻿namespace MediatR.Application.Contract.Usuario;
 
-public class UsuarioByIdQuery : IRequest<UsuarioByIdQueryResult>
+public class UsuarioByIdQueryRequest : IRequest<UsuarioByIdQueryResult>
 {
     public Guid Id { get; set; }
 

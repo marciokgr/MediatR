@@ -1,18 +1,17 @@
 using MediatR.Core.Middlewares;
-using Serilog;
 using MediatR.Core.Extensions;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 LogExtensions.AddSerilogApi(builder.Configuration);
-
-
+builder.Host.UseSerilog(Log.Logger);
 var services = builder.Services;
 
 services.AddRouting(options => options.LowercaseUrls = true); //tudo em minusculo
 services.AddControllers();
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
-services.AddMediatRApi(); //mediator
+services.AddMediatRApi();
 
 var app = builder.Build();
 

@@ -1,6 +1,6 @@
-﻿
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using MediatR.Application.Queries.UsuarioQuery;
+using MediatR.Application.Commands.UsuarioCommand;
 
 namespace MediatR.Core.Extensions
 {
@@ -8,7 +8,8 @@ namespace MediatR.Core.Extensions
     {
         public static void AddMediatRApi(this IServiceCollection services)
         {
-           services.AddMediatR(typeof(UsuarioByIdQuery));
+           services.AddMediatR(typeof(UsuarioQueryHandler));
+           services.AddMediatR(typeof(UsuarioCommandHandler));
         }
     }
 }
